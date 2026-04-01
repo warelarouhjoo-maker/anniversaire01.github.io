@@ -382,9 +382,6 @@
 </div>
 
 <!-- ===== PAGE 2 ===== -->
-<audio id ="audio" loop preload ="none>
-  <source src="A2.mp3" type="audio/mpeg">
-</audio>
   <div id="page2">
   <div id="photo-wrapper">
     <div>
@@ -404,15 +401,18 @@
 
 <script>
     /* ----music ---- */
-const audio = document.getElementById("audio");
 const btn = document.getElementById("btn-non");
+const audio = new Audio("A2.mp3"); // crée l'audio une seule fois
+audio.loop = true;
 
 btn.addEventListener("click", function () {
-  audio.play().then(() => {
-    console.log("Audio lancé");
-  }).catch((e) => {
-    console.log("Erreur :", e);
-  });
+  if (audio.paused) {      // si la musique est en pause
+    audio.play();           // on joue
+    btn.textContent = "⏸️ Pause"; // change le texte du bouton
+  } else {
+    audio.pause();          // sinon on met en pause
+    btn.textContent = "🎵 Lancer";
+  }
 });
   /* ---- Confetti ---- */
   const colors = ['#ff6b9d','#ffd166','#c77dff','#ff9a76','#06d6a0','#118ab2'];
