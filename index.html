@@ -352,9 +352,7 @@
 <body>
 
 <!-- mUSIC -->
-<audio autoplay>
-  <source src="A2.mp3" type="audio/mpeg">
-</audio>
+
 
 <!-- Confetti -->
 <div id="confetti-container"></div>
@@ -372,6 +370,7 @@
     <p class="subtitle">Profite n'oublie pas de m'invité !!!! ✨</p>
 
     <div id="gift-question">
+        <p>Tape d'abord sur l'écran pour le son</p>
       <p>🎁 Est-ce que tu voudrais<br>un cadeau spécial aujourd'hui ?</p>
       <div class="btn-row" id="btn-row">
         <button class="btn" id="btn-oui">Oui 🥰</button>
@@ -383,7 +382,10 @@
 </div>
 
 <!-- ===== PAGE 2 ===== -->
-<div id="page2">
+<audio id ="audio" loop>
+  <source src="A2.mp3" type="audio/mpeg">
+</audio>
+  <div id="page2">
   <div id="photo-wrapper">
     <div>
       <div id="p2-title">Bahhhhhhhh !</div>
@@ -401,6 +403,12 @@
 </div>
 
 <script>
+    /* ----music ---- */
+  document.body.addEventListener("touchstart", funtion(){
+    const audio = 
+      document.getElementById("audio");
+    audio.play();
+  }, { once: true });
   /* ---- Confetti ---- */
   const colors = ['#ff6b9d','#ffd166','#c77dff','#ff9a76','#06d6a0','#118ab2'];
   const shapes = ['●','■','▲','★','♦'];
